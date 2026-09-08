@@ -7,5 +7,30 @@
         mc:Ignorable="d"
         Title="Beehive Management System" Height="325" Width="625">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Label Content="Job Assigment" HorizontalAlignment="Center" Margin="20,0,20,0" VerticalAlignment="Bottom" FontSize="18"/>
+        <Label Grid.Column="1" Content="Queen's Report" HorizontalAlignment="Center" Margin="20,0,20,0" VerticalAlignment="Bottom" FontSize="18"/>
+        
+        <StackPanel Grid.Row="1" VerticalAlignment="Top" Margin="20,20,20,20">
+            <ComboBox x:Name="jobSelector" Grid.Row="1" FontSize="18" SelectedIndex="0" Margin="0,0,0,20">
+                <ListBoxItem Content="Nectar Collector"/>
+                <ListBoxItem Content="Honey Manufacturer"/>
+                <ListBoxItem Content="Egg Care"/>
+            </ComboBox>
+            <Button x:Name="AssignJob" Content="Assign this job to a bee" FontSize="18" Click="AssignJob_Click"/>
+        </StackPanel>
+        
+        <Button x:Name="WorkShift" Content="Work the next shift" Margin="20,20,20,20" Grid.Row="2" FontSize="18" Click="WorkShift_Click"/>
+        
+        <TextBox x:Name="statusReport" IsReadOnly="True" Grid.Column="1" Margin="20,20,20,20" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" Grid.RowSpan="2"/>
     </Grid>
 </Window>
