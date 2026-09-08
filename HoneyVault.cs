@@ -33,7 +33,7 @@ namespace BeehiveManagementSystem
         {
             get
             {
-                string text = $"Vault report:\n{honey} units of honey\n{nectar} units of nectar";
+                string text = $"{honey} units of honey\n{nectar} units of nectar";
                 if (honey < LOW_LEVEL_WARNING) text += "\nLOW HONEY - ADD A HONEY MANUFACTURER";
                 if (nectar < LOW_LEVEL_WARNING) text += "\nLOW NECTAR - ADD A NECTAR COLLECTOR";
                 return text;
