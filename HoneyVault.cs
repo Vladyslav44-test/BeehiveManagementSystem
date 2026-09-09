@@ -33,7 +33,7 @@ namespace BeehiveManagementSystem
         {
             get
             {
-                string text = $"{honey} units of honey\n{nectar} units of nectar";
+                string text = $"{honey:0.0} units of honey\n{nectar:0.0} units of nectar";
                 if (honey < LOW_LEVEL_WARNING) text += "\nLOW HONEY - ADD A HONEY MANUFACTURER";
                 if (nectar < LOW_LEVEL_WARNING) text += "\nLOW NECTAR - ADD A NECTAR COLLECTOR";
                 return text;
@@ -60,7 +60,7 @@ namespace BeehiveManagementSystem
         /// <param name="amount">Додавана кількість нектару.</param>
         public static void CollectNectar(float amount)
         {
-            if (amount >= 0) nectar += amount;
+            if (amount >= 0f) nectar += amount;
         }
         /// <summary>
         /// Перетворює нектар в мед (віднімає частину нектару зі сховища або використовує весь залишений в сховищі нектар).
