@@ -44,7 +44,7 @@ namespace BeehiveManagementSystem
         /// Призначає новій бджолі роботу.
         /// </summary>
         /// <param name="job">Завдання, яке має виконувати бджола.</param>
-        private void AssignBee(string job)
+        public void AssignBee(string job)
         {
             switch (job)
             {
