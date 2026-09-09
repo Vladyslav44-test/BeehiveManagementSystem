@@ -29,7 +29,7 @@ namespace BeehiveManagementSystem
             InitializeComponent();
             statusReport.Text = quenn.StatusReport;
             timer.Tick += Timer_Tick;
-            timer.Interval = TimeSpan.FromSeconds(1.5);
+            timer.Interval = TimeSpan.FromSeconds(2.0);
             timer.Start();
         }
 

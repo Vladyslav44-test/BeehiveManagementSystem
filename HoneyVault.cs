@@ -20,7 +20,7 @@ namespace BeehiveManagementSystem
         /// <summary>
         /// Кількість меду в сховищі.
         /// </summary>
-        private static float honey = 25f;
+        private static float honey = 25.2f;
         /// <summary>
         /// Кількість нектару в сховищі.
         /// </summary>
