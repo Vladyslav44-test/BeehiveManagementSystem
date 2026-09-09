@@ -71,7 +71,21 @@ namespace BeehiveManagementSystem
 
         public void UpdateStatusReport()
         {
+            StatusReport = $"Vault report:\n{HoneyVault.StatusReport}\n" +
+                $"\nEgg count: {eggs:0.0}\nUnassigned workers: {unassignedWorkers:0.0}\n" +
+                $"{CountWorkers("Nectar Collector")} Nectar Collector bee(s)\n{CountWorkers("Honey Manufacturer")} Honey Manufacturer bee(s)\n" +
+                $"{CountWorkers("Egg Care")} Egg Care bee(s)\nTOTAL WORKERS: {workers.Length}";
+            
+        }
 
+        private int CountWorkers(string job)
+        {
+            int count = 0;
+            foreach (Bee worker in workers)
+            {
+                if (worker.Job == job) count++;
+            }
+            return count;
         }
 
         public Quenn() : base("Quenn")
