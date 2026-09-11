@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BeehiveManagementSystem
 {
-    internal class Bee
+    internal abstract class Bee
     {
         /// <summary>
         /// Стрічка із завданням бджоли.
@@ -15,7 +15,7 @@ namespace BeehiveManagementSystem
         /// <summary>
         /// Кількість меду, яка споживається бджолою для виконання роботи (перевизначається субкласами). 
         /// </summary>
-        public virtual float CostPerShift { get; }
+        public abstract float CostPerShift { get; }
 
         /// <summary>
         /// Викликає метод DoJob об'єкта, якщо для виконання роботи достатньо меду в сховищі.
@@ -27,10 +27,7 @@ namespace BeehiveManagementSystem
         /// <summary>
         /// Перевизначається субклассом.
         /// </summary>
-        protected virtual void DoJob()
-        {
-            /// Перевизначається субклассом.
-        }
+        protected abstract void DoJob();
 
         /// <summary>
         /// Задає значення властивості Job.
