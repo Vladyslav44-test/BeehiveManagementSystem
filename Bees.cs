@@ -20,7 +20,7 @@ namespace BeehiveManagementSystem
         /// <summary>
         /// Всі зайтяті бджоли.
         /// </summary>
-        private Bee[] workers = new Bee[0];
+        private IWorker[] workers = new IWorker[0];
         /// <summary>
         /// Кількість яєць.
         /// </summary>
@@ -69,7 +69,7 @@ namespace BeehiveManagementSystem
         /// Додає нового робітника в массив workers.
         /// </summary>
         /// <param name="worker">Робітник, який додається до массиву.</param>
-        private void AddWorker(Bee worker)
+        private void AddWorker(IWorker worker)
         {
             if (unassignedWorkers >= 1)
             {
@@ -85,7 +85,7 @@ namespace BeehiveManagementSystem
         protected override void DoJob()
         {
             eggs += EGGS_PER_SHIFT;
-            foreach (Bee worker in workers)
+            foreach (IWorker worker in workers)
             {
                 worker.WorkTheNextShift();
             }
