@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace BeehiveManagementSystem
 {
-    internal abstract class Bee
+    interface IWorker
+    {
+        /// <summary>
+        /// Стрічка із завданням працівника.
+        /// </summary>
+        string Job { get; }
+
+        /// <summary>
+        /// Метод для відробітку зміни працівником.
+        /// </summary>
+        void WorkTheNextShift();
+    }
+
+    internal abstract class Bee : IWorker
     {
         /// <summary>
         /// Стрічка із завданням бджоли.
