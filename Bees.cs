@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace BeehiveManagementSystem
 {
-    internal class Quenn : Bee
+    internal class Quenn : Bee, INotifyPropertyChanged
     {
         /// <summary>
         /// Константа для збільшення поля eggs.
@@ -29,6 +30,12 @@ namespace BeehiveManagementSystem
         /// Кількість незайнятих бджолей.
         /// </summary>
         private float unassignedWorkers = 3;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
 
         /// <summary>
         /// Кількість меду, яку споживає бджола за зміну (у Quenn = 2.15).
@@ -113,7 +120,7 @@ namespace BeehiveManagementSystem
                 $"\nEgg count: {eggs:0.0}\nUnassigned workers: {unassignedWorkers:0.0}\n" +
                 $"{CountWorkers("Nectar Collector")} Nectar Collector bee(s)\n{CountWorkers("Honey Manufacturer")} Honey Manufacturer bee(s)\n" +
                 $"{CountWorkers("Egg Care")} Egg Care bee(s)\nTOTAL WORKERS: {workers.Length}";
-            
+            OnPropertyChanged("StatusReport");
         }
         /// <summary>
         /// Повертає кількість робітників із заданою роботою.
